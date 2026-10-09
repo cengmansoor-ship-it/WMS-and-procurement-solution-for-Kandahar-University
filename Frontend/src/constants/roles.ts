@@ -1,0 +1,66 @@
+export const ROLES = {
+  SUPER_ADMIN: 'Super Admin',
+  ADMIN: 'Admin',
+  PROCUREMENT_DIRECTOR: 'Procurement Director',
+  WAREHOUSE_DIRECTOR: 'Warehouse Director',
+  WAREHOUSE_ENTRY_PERSON: 'Warehouse Entry Person',
+  REQUESTER: 'Requester',
+  REQUEST_CONFIRMER: 'Request Confirmer',
+} as const;
+
+export type UserRole = typeof ROLES[keyof typeof ROLES];
+
+export const PERMISSIONS = {
+  MANAGE_USERS: 'manage_users',
+  MANAGE_ROLES: 'manage_roles',
+  VIEW_AUDIT_LOGS: 'view_audit_logs',
+  VIEW_TRASH: 'view_trash',
+  MANAGE_SETTINGS: 'manage_settings',
+  VIEW_INVENTORY: 'view_inventory',
+  EDIT_INVENTORY: 'edit_inventory',
+  VIEW_PROCUREMENT: 'view_procurement',
+  MANAGE_PROCUREMENT: 'manage_procurement',
+  VIEW_RECEIVING: 'view_receiving',
+  MANAGE_RECEIVING: 'manage_receiving',
+  CREATE_REQUESTS: 'create_requests',
+  CONFIRM_REQUESTS: 'confirm_requests',
+  VIEW_ALL_REQUESTS: 'view_all_requests',
+  VIEW_REPORTS: 'view_reports',
+} as const;
+
+export type Permission = typeof PERMISSIONS[keyof typeof PERMISSIONS];
+
+export const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
+  [ROLES.SUPER_ADMIN]: Object.values(PERMISSIONS),
+  [ROLES.ADMIN]: [
+    PERMISSIONS.VIEW_INVENTORY,
+    PERMISSIONS.EDIT_INVENTORY,
+    PERMISSIONS.VIEW_ALL_REQUESTS,
+    PERMISSIONS.VIEW_REPORTS,
+    PERMISSIONS.VIEW_PROCUREMENT,
+    PERMISSIONS.VIEW_RECEIVING,
+    PERMISSIONS.MANAGE_RECEIVING,
+  ],
+  [ROLES.PROCUREMENT_DIRECTOR]: [
+    PERMISSIONS.VIEW_PROCUREMENT,
+    PERMISSIONS.MANAGE_PROCUREMENT,
+  ],
+  [ROLES.WAREHOUSE_DIRECTOR]: [
+    PERMISSIONS.VIEW_RECEIVING,
+    PERMISSIONS.MANAGE_RECEIVING,
+    PERMISSIONS.VIEW_INVENTORY,
+    PERMISSIONS.EDIT_INVENTORY,
+  ],
+  [ROLES.WAREHOUSE_ENTRY_PERSON]: [
+    PERMISSIONS.VIEW_INVENTORY,
+    PERMISSIONS.EDIT_INVENTORY,
+    PERMISSIONS.VIEW_RECEIVING,
+    PERMISSIONS.MANAGE_RECEIVING,
+  ],
+  [ROLES.REQUESTER]: [
+    PERMISSIONS.CREATE_REQUESTS,
+  ],
+  [ROLES.REQUEST_CONFIRMER]: [
+    PERMISSIONS.CONFIRM_REQUESTS,
+  ],
+};

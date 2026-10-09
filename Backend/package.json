@@ -1,0 +1,45 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Node.js Express MySQL API for Kandahar WMS",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "cross-env TS_NODE_CACHE=false node_modules/.bin/nodemon --exec node_modules/.bin/ts-node src/server.ts",
+    "build": "tsc",
+    "test": "npm run build && node --test tests/session-security.test.cjs",
+    "test:live": "node --test tests/live-api.test.cjs",
+    "reset:empty": "node scripts/reset-empty.js"
+  },
+  "ts-node": {
+    "cache": false
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.6.1",
+    "helmet": "^8.3.0",
+    "mysql2": "^3.12.0",
+    "node-cron": "^4.4.1",
+    "nodemailer": "^9.0.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/compression": "^1.8.1",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.4",
+    "@types/node-cron": "^3.0.11",
+    "@types/nodemailer": "^8.0.1",
+    "cross-env": "^10.1.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

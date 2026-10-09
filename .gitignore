@@ -1,0 +1,72 @@
+# ─────────────────────────────────────────────────────────────
+#  Kandahar University WMS — Root .gitignore
+#  Keep secrets, builds, and large local data OUT of the repo
+# ─────────────────────────────────────────────────────────────
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+*.tsbuildinfo
+
+# Compiled / source-map artifacts
+*.js.map
+*.d.ts.map
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment & secrets — NEVER commit real credentials
+.env
+.env.local
+.env.*.local
+!.env.example
+Backend/.env
+.wms-session-key
+*.pem
+*.key
+*.pfx
+
+# Database backup dumps (real/sensitive data, large)
+Backup/*.sql
+Backup/*.ini
+!Backup/.gitkeep
+
+# Local MySQL data directories
+mysql_data/
+mysql_temp_data/
+
+# Test & tooling output
+test-results/
+coverage/
+.agents/
+Frontend/attached_assets/
+
+# Internal dev/repair notes (not part of the deliverable)
+FINAL_CHANGED_FILES_SHA256.txt
+FINAL_COMPARISON_REPAIR_REPORT_PASHTO.txt
+REPAIR_REPORT_PASHTO.txt
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Misc
+kandahar-wms/

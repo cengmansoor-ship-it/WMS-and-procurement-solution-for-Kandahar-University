@@ -1,0 +1,78 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // --- Helper Functions ---
+    
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+    
+    function hasRole(role) {
+      return getUserData().role == role;
+    }
+    
+    function isActive() {
+      return getUserData().active == true;
+    }
+    
+    function isSuperAdmin() {
+      return hasRole('Super Admin');
+    }
+
+    // --- Global Access Rules ---
+    
+    match /{document=**} {
+      // Deny all by default
+      allow read, write: if false;
+    }
+    
+    // --- Collection Specific Rules ---
+    
+    match /users/{userId} {
+      allow read: if isSignedIn() && (request.auth.uid == userId || isSuperAdmin());
+      allow write: if isSignedIn() && isSuperAdmin();
+    }
+    
+    match /items/{itemId} {
+      allow read: if isSignedIn() && isActive();
+      allow write: if isSignedIn() && isActive() && (hasRole('Super Admin') || hasRole('Admin'));
+    }
+    
+    match /requests/{requestId} {
+      allow read: if isSignedIn() && isActive() && (
+        resource.data.requesterId == request.auth.uid || 
+        hasRole('Super Admin') || hasRole('Admin') || hasRole('Request Confirmer')
+      );
+      allow create: if isSignedIn() && isActive() && hasRole('Requester');
+      allow update: if isSignedIn() && isActive();
+    }
+    
+    match /procurements/{procId} {
+      allow read: if isSignedIn() && isActive() && (hasRole('Super Admin') || hasRole('Admin') || hasRole('Procurement Director'));
+      allow write: if isSignedIn() && isActive() && (hasRole('Super Admin') || hasRole('Procurement Director'));
+    }
+    
+    match /audit_logs/{logId} {
+      allow read: if isSignedIn() && isSuperAdmin();
+      allow create: if isSignedIn(); // Allow logging from any signed-in user
+      allow update, delete: if false; // Audit logs are immutable
+    }
+    
+    match /stock_transactions/{transId} {
+      allow read: if isSignedIn() && isActive();
+      allow create: if isSignedIn() && isActive();
+      allow update, delete: if false; // Transactions are immutable
+    }
+
+    match /trash_logs/{logId} {
+      allow read: if isSignedIn() && isSuperAdmin();
+      allow create: if isSignedIn() && isActive();
+      allow update, delete: if false;
+    }
+  }
+}

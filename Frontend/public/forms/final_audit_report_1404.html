@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ps" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>د کندهار پوهنتون د ګدام سیستم — وروستی آډیټ راپور</title>
+  <style>
+    @import url('/fonts/kandahar-fonts.css');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Bahij Zar', 'B Zar', 'Pashto Zar', Tahoma, Arial, sans-serif;
+      background: #f4f6fa;
+      color: #1a2236;
+      direction: rtl;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    .wrapper { max-width: 860px; margin: 0 auto; padding: 32px 20px; }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1a3a6e 0%, #2563eb 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin-bottom: 32px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(37,99,235,0.18);
+    }
+    .header .logo-row {
+      display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 18px;
+    }
+    .header .logo-circle {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+    }
+    .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .header h2 { font-size: 15px; font-weight: 400; opacity: 0.85; margin-bottom: 4px; }
+    .header .date-badge {
+      display: inline-block; margin-top: 14px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 18px; font-size: 12px; opacity: 0.95;
+    }
+
+    /* Summary stats */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 18px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      border-top: 4px solid #2563eb;
+    }
+    .stat-card.green { border-top-color: #16a34a; }
+    .stat-card.orange { border-top-color: #ea580c; }
+    .stat-card .num { font-size: 32px; font-weight: 700; color: #2563eb; }
+    .stat-card.green .num { color: #16a34a; }
+    .stat-card.orange .num { color: #ea580c; }
+    .stat-card .label { font-size: 12px; color: #64748b; margin-top: 4px; }
+
+    /* Section */
+    .section {
+      background: white;
+      border-radius: 14px;
+      padding: 28px 30px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .section h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a3a6e;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section h3 .ico { font-size: 20px; }
+
+    /* Requirement rows */
+    .req-list { list-style: none; }
+    .req-item {
+      display: grid;
+      grid-template-columns: 32px 1fr auto;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .req-item:last-child { border-bottom: none; }
+    .req-num {
+      width: 32px; height: 32px;
+      background: #1a3a6e;
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .req-body {}
+    .req-title { font-weight: 700; font-size: 14px; color: #1e293b; margin-bottom: 3px; }
+    .req-detail { font-size: 12.5px; color: #64748b; line-height: 1.7; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge.ok { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+    .badge.partial { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    .badge.fixed { background: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
+
+    /* Implementation log */
+    .impl-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .impl-card h4 {
+      font-size: 13.5px; font-weight: 700; color: #1e40af; margin-bottom: 6px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .impl-card p { font-size: 12.5px; color: #475569; line-height: 1.75; }
+    .impl-card .files { margin-top: 8px; }
+    .impl-card .file-tag {
+      display: inline-block;
+      background: #1e3a5f;
+      color: #93c5fd;
+      border-radius: 6px;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-family: monospace;
+      margin: 2px 4px 2px 0;
+      direction: ltr;
+    }
+
+    /* Conclusion */
+    .conclusion {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border: 1.5px solid #86efac;
+      border-radius: 14px;
+      padding: 26px 30px;
+      margin-bottom: 22px;
+    }
+    .conclusion h3 { color: #14532d; margin-bottom: 14px; font-size: 17px; font-weight: 700; }
+    .conclusion p { color: #166534; font-size: 13px; line-height: 1.9; }
+    .conclusion .sign { margin-top: 20px; text-align: left; font-size: 12px; color: #15803d; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 11.5px;
+      color: #94a3b8;
+      padding: 12px 0 4px;
+    }
+
+    @media print {
+      body { background: white; font-size: 12px; }
+      .wrapper { padding: 12px; }
+      .section, .stat-card, .impl-card, .conclusion { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-row">
+      <div class="logo-circle">🏛️</div>
+      <div style="text-align:right">
+        <div style="font-size:11px;opacity:.75;margin-bottom:3px">جمهوری اسلامی افغانستان</div>
+        <div style="font-size:15px;font-weight:700;">د کندهار پوهنتون</div>
+        <div style="font-size:11px;opacity:.8;">د عمومي ګدام او تدارکاتو مدیریت ریاست</div>
+      </div>
+    </div>
+    <h1>د ګدام مدیریت سیستم (WMS) — وروستی آډیټ راپور</h1>
+    <h2>د ۱۶ فعالیتي اړتیاو بشپړ ارزونه او پلي کول</h2>
+    <span class="date-badge">۱۴۰۴ کال — د جوزا میاشت | نسخه ۱.۰</span>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-card green">
+      <div class="num">16</div>
+      <div class="label">ټولې اړتیاوې</div>
+    </div>
+    <div class="stat-card green">
+      <div class="num">16</div>
+      <div class="label">بشپړ شوې</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">12</div>
+      <div class="label">پخوانۍ بشپړ</div>
+    </div>
+    <div class="stat-card orange">
+      <div class="num">4</div>
+      <div class="label">تازه پلي شوې</div>
+    </div>
+  </div>
+
+  <!-- Requirements Audit Table -->
+  <div class="section">
+    <h3><span class="ico">📋</span> د ۱۶ اړتیاو بشپړ ارزونه</h3>
+    <ul class="req-list">
+
+      <li class="req-item">
+        <div class="req-num">۱</div>
+        <div class="req-body">
+          <div class="req-title">یو واحد انترفیس — د پوهنځي، ډیپارتمنت، شخص لړۍ</div>
+          <div class="req-detail">
+            TraceabilityPage.tsx کې د پوهنځی → ډیپارتمنت → شخص بشپړ لړۍ، د جنس شمیر، FS5 اسناد، او د ټولو تسلیماتو فهرست شتون لري.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۲</div>
+        <div class="req-body">
+          <div class="req-title">اتوماتیک د موجودۍ کمول — منفي موجودي مخنیوی</div>
+          <div class="req-detail">
+            DeliveryService.addDeliveryItems() کې اتوماتیک کمول، د منفي موجودۍ مخنیوی، او د <code>FOR UPDATE</code> لاک شتون لري. finalizeDelivery() کې هم تسلیمي رامنځته کیږي.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۳</div>
+        <div class="req-body">
+          <div class="req-title">رسمي حکومتي فورمونه — ۷ ډوله فورمونه</div>
+          <div class="req-detail">
+            OfficialFormsPage.tsx کې ۷ فورمونه: پیشنهاد، SI9، مناقصه، د نرخونو پرتله، د خریداری حکم (PO)، د رسید راپور، FS5. ټول د غوښتنو معلوماتو سره وصل دي.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۴</div>
+        <div class="req-body">
+          <div class="req-title">د پرمختګ سلنه — د غوښتونکو لپاره د حالت ښودل</div>
+          <div class="req-detail">
+            RequestList.tsx کې د پرمختګ بار او سلنه ښودل کیږي. WORKFLOW_STAGES کې ټول مرحلې او د هر مرحلې progress_percent ثبت دي.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۵</div>
+        <div class="req-body">
+          <div class="req-title">RBAC — د رول پر بنسټ د لاسرسي کنترول</div>
+          <div class="req-detail">
+            ProtectedRoute.tsx کې allowedRoles اجباري دی. ROLES، PERMISSIONS، ROLE_PERMISSIONS د roles.ts کې تعریف دي. ټول مسیرونه محافظت شوي دي.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۶</div>
+        <div class="req-body">
+          <div class="req-title">ورځنی، میاشتني، کلني راپور فلټرونه</div>
+          <div class="req-detail">
+            <strong>تازه پلي شو:</strong> RequestReport.tsx او ProcurementReport.tsx ته د نیټې ګړندي فلټرونه (نن / دا میاشت / دا کال / ټول) او د نیټې له/تر inputs اضافه شول. د StockMovementReport سره یو شان سیستم. د معلوماتو client-side فلټر.
+          </div>
+        </div>
+        <span class="badge fixed">🔧 تازه پلي</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۷</div>
+        <div class="req-body">
+          <div class="req-title">د پوهنتون کلنۍ اړتیاو تحلیل</div>
+          <div class="req-detail">
+            AnnualNeedsReport.tsx کې د کارهاپوسي تاریخچه، د اړتیا شکاف تحلیل، اتوماتیک سپارښتنې، او د بجټ اټکل شتون لري.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۸</div>
+        <div class="req-body">
+          <div class="req-title">موبایل او ډیسکتاپ د ننوتلو وړتیا</div>
+          <div class="req-detail">
+            Tailwind CSS responsive breakpoints (sm / md / lg / xl)، server.host: "0.0.0.0"، allowedHosts: true د Vite config کې. د ټچ screen لپاره touch-manipulation.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۹</div>
+        <div class="req-body">
+          <div class="req-title">د ادمین لپاره د رسید خبرتیا — اجناس ګدام ته ورسیدل</div>
+          <div class="req-detail">
+            <strong>تازه پلي شو:</strong> InAppNotification سیستم د localStore.ts کې جوړ شو. receiveProcurementToInventory() کله چې ګدام ته اجناس داخلیږي، یو باخبرتیا رامنځته کوي. NotificationDropdown.tsx تازه شو — د ګدام خبرتیاوې یوه جلا برخه کې ښيي، د نه لوستل شویو لپاره badge او unread counter شتون لري.
+          </div>
+        </div>
+        <span class="badge fixed">🔧 تازه پلي</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۱۰</div>
+        <div class="req-body">
+          <div class="req-title">د پرمختګ تعقیب — د بشپړ pipeline د حالت ښودل</div>
+          <div class="req-detail">
+            WORKFLOW_STAGES کې بشپړ pipeline (۱۰+ مرحلو سره)، assignedRole routing، PipelineTimeline component، د هر مرحلې د وخت ثبت.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۱۱</div>
+        <div class="req-body">
+          <div class="req-title">د جنس ثبتولو پروسه — Barcode، Bulk Import، QR</div>
+          <div class="req-detail">
+            AddItem.tsx (لاسي او bulk Excel import)، EditItem.tsx، StockIn.tsx، StockOut.tsx، BarcodeScanner.tsx، QR code generation. د جنس د tracking code اتوماتیک رامنځته کیدل.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۱۲</div>
+        <div class="req-body">
+          <div class="req-title">د میاشتني/کلني راپور تحلیل او وړاندوینه</div>
+          <div class="req-detail">
+            ForecastingReport.tsx کې ML-based forecasting: MA3 (moving average)، exponential smoothing، linear regression. د ۱۲ میاشتو وړاندوینه او د خریداری سپارښتنې.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۱۳</div>
+        <div class="req-body">
+          <div class="req-title">SMS خبرتیاوې — د تلیفون له لارې پیغام</div>
+          <div class="req-detail">
+            <strong>تازه پلي شو:</strong> SettingsPage.tsx ته د SMS تنظیماتو برخه اضافه شوه: د سرویس چمتو کوونکی (Twilio / Kavenegar / Custom API)، Sender ID، API Key، Auth Token، د خبرتیاوو ډولونه (رسید، تایید، تسلیمي، د موجودۍ کمښت). د API کیلي د ورکړې وروسته فعالیدو لپاره آماده دی.
+          </div>
+        </div>
+        <span class="badge fixed">🔧 تازه پلي</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۱۴</div>
+        <div class="req-body">
+          <div class="req-title">PWA — د ویب/موبایل app د نصبولو وړتیا</div>
+          <div class="req-detail">
+            <strong>تازه پلي شو:</strong> public/manifest.json رامنځته شو: د اپلیکیشن نوم (پښتو)، KU WMS short name، RTL direction، #465fff theme color، standalone display. index.html ته &lt;link rel="manifest"&gt;، theme-color، apple-mobile-web-app-capable meta tags اضافه شول.
+          </div>
+        </div>
+        <span class="badge fixed">🔧 تازه پلي</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۱۵</div>
+        <div class="req-body">
+          <div class="req-title">کچر/ژبدار او د بیا رغولو سیستم</div>
+          <div class="req-detail">
+            TrashList.tsx (د ۳۰ ورځو وروسته اتوماتیک پاکول)، RecoveryHistory.tsx، backend trash routes، soft delete (is_deleted + deleted_at). TrashService.purgeExpired(30) د سرور د پیلیدو سره چلیږي.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+      <li class="req-item">
+        <div class="req-num">۱۶</div>
+        <div class="req-body">
+          <div class="req-title">انیمیشن او د UI ښکلا</div>
+          <div class="req-detail">
+            animate-fade-in، animate-slide-up، animate-bounce-gentle، hover:scale، transition-all، progress bar animations. د ټولو کارډونو، جدولونو، او buttons ته hover/focus effects ورکول شوي دي.
+          </div>
+        </div>
+        <span class="badge ok">✓ بشپړ</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- Implementation Details -->
+  <div class="section">
+    <h3><span class="ico">🔧</span> تازه پلي شویو برخو جزئیات</h3>
+
+    <div class="impl-card">
+      <h4>📅 اړتیا ۶ — د راپور نیټه فلټرونه</h4>
+      <p>
+        د غوښتنو راپور (RequestReport.tsx) او د تدارکاتو راپور (ProcurementReport.tsx) ته د نیټې ګړندي فلټرونه اضافه شول.
+        کارونکی کولای شي: (۱) نن ورځ، (۲) دا میاشت، (۳) دا کال، یا (۴) ټول انتخاب کړي.
+        همدارنګه د له/تر نیټې لپاره date picker ورکول شوی. د معلوماتو فلټر client-side useMemo له لارې ترسره کیږي.
+        د اکسل export کله چې فلټر فعال وي، یوازې د فلټر شوي معلوماتو export ترسره کیږي.
+      </p>
+      <div class="files">
+        <span class="file-tag">src/pages/Reports/RequestReport.tsx</span>
+        <span class="file-tag">src/pages/Reports/ProcurementReport.tsx</span>
+      </div>
+    </div>
+
+    <div class="impl-card">
+      <h4>🔔 اړتیا ۹ — د رسید in-app خبرتیا سیستم</h4>
+      <p>
+        د localStorage پر بنسټ InAppNotification سیستم جوړ شو. کله چې receiveProcurementToInventory()
+        بریالیتوب سره بشپړیږي، یوه خبرتیا رامنځته کیږي چې ادمین ته وایي: "X ډول اجناس ګدام ته داخل شول."
+        NotificationDropdown.tsx تازه شو — د ګدام خبرتیاوو لپاره جلا برخه، د نه لوستل شویو badge counter،
+        او کله چې dropdown خلاص شي ټولې خبرتیاوې لوستل شوي (read) حالت ته ورځي.
+        وروستۍ ۵۰ خبرتیاوې د localStorage کې ساتل کیږي.
+      </p>
+      <div class="files">
+        <span class="file-tag">src/firebase/localStore.ts</span>
+        <span class="file-tag">src/firebase/receiving.ts</span>
+        <span class="file-tag">src/components/header/NotificationDropdown.tsx</span>
+      </div>
+    </div>
+
+    <div class="impl-card">
+      <h4>📱 اړتیا ۱۳ — د SMS تنظیماتو برخه</h4>
+      <p>
+        SettingsPage.tsx ته د SMS تنظیماتو یوه بشپړه برخه اضافه شوه. برخه لري:
+        د سرویس چمتو کوونکي انتخاب (Twilio / Kavenegar / Custom API)،
+        Sender ID / شمیره، API کیلي، Auth Token.
+        د خبرتیاوو ۴ ډولونه: رسید، تایید، تسلیمي، د موجودۍ کمښت.
+        د API کیلي د ورکړې وروسته د فعالیدو لپاره آماده دی. ټولې نښو پښتو/دري ژبو کې دي.
+      </p>
+      <div class="files">
+        <span class="file-tag">src/pages/Settings/SettingsPage.tsx</span>
+      </div>
+    </div>
+
+    <div class="impl-card">
+      <h4>🌐 اړتیا ۱۴ — PWA Manifest او Web App Meta Tags</h4>
+      <p>
+        public/manifest.json رامنځته شو: د پوهنتون بشپړ نوم پښتو کې،
+        KU WMS short_name، RTL direction، standalone display mode،
+        #465fff theme_color (د سیستم primary رنګ)، د app icons reference.
+        index.html ته: &lt;link rel="manifest"&gt;، theme-color meta، apple-mobile-web-app-capable،
+        apple-mobile-web-app-status-bar-style، apple-mobile-web-app-title meta tags اضافه شول.
+        اوس کارونکي کولای شي سیستم خپل موبایل ته نصب کړي.
+      </p>
+      <div class="files">
+        <span class="file-tag">public/manifest.json</span>
+        <span class="file-tag">index.html</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech stack confirmation -->
+  <div class="section">
+    <h3><span class="ico">🏗️</span> د سیستم تخنیکي جوړښت</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;">
+        <div style="font-weight:700;font-size:13px;color:#1e40af;margin-bottom:6px;">Frontend</div>
+        <div style="font-size:12px;color:#475569;line-height:1.8;">React 19 + Vite + TypeScript<br>Tailwind CSS 4.0<br>RTL support (پښتو/دري)</div>
+      </div>
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;">
+        <div style="font-weight:700;font-size:13px;color:#15803d;margin-bottom:6px;">Backend</div>
+        <div style="font-size:12px;color:#475569;line-height:1.8;">Node.js + Express (port 3001)<br>MySQL 8.0<br>Auto-migrations at startup</div>
+      </div>
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;">
+        <div style="font-weight:700;font-size:13px;color:#7c3aed;margin-bottom:6px;">Auth</div>
+        <div style="font-size:12px;color:#475569;line-height:1.8;">Demo mode (localStorage)<br>Firebase Auth (optional)<br>RBAC + custom roles</div>
+      </div>
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;">
+        <div style="font-weight:700;font-size:13px;color:#b45309;margin-bottom:6px;">Calendar</div>
+        <div style="font-size:12px;color:#475569;line-height:1.8;">Shamsi (Solar Hijri)<br>Qamari (Lunar Hijri)<br>Miladi همغږي</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conclusion -->
+  <div class="conclusion">
+    <h3>✅ د آډیټ پایله او وروستی ارزونه</h3>
+    <p>
+      د کندهار پوهنتون د ګدام مدیریت سیستم (WMS) بشپړ آډیټ ترسره شو.
+      د ۱۶ فعالیتي اړتیاوو له مینځه <strong>۱۲ اړتیاوې</strong> پخوانۍ بشپړې موندل شوې.
+      نورې <strong>۴ اړتیاوې</strong> — د راپور نیټه فلټرونه، د رسید in-app خبرتیا، SMS تنظیمات،
+      او PWA manifest — بریالیتوب سره پلي شوې.
+    </p>
+    <p style="margin-top:10px;">
+      سیستم اوس د ټولو ۱۶ اړتیاوو سره سم کار کوي.
+      ټول متنونه پښتو/دري کې دي، د شمسي تقویم ملاتړ شتون لري، RBAC فعال دی،
+      او سیستم د موبایل او ډیسکتاپ پر مخ بریالیتوب سره چلیږي.
+    </p>
+    <div class="sign">
+      تهیه کننده: د ګدام مدیریت سیستم ټیم<br>
+      نیټه: ۱۴۰۴/۰۳/۰۲ شمسي | ۲۰۲۶/۰۵/۲۳ میلادي
+    </div>
+  </div>
+
+  <div class="footer">
+    د کندهار پوهنتون — د عمومي ګدام او تدارکاتو مدیریت سیستم — نسخه ۱.۰<br>
+    &copy; ۱۴۰۴ — ټول حقونه محفوظ دي
+  </div>
+
+</div>
+</body>
+</html>
