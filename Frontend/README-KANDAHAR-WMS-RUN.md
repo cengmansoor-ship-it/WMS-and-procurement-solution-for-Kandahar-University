@@ -1,41 +1,41 @@
-# Kandahar University WMS - Local Run
+# Kandahar University WMS — Local Run
 
-## چټک استعمال
+## Quick Start
 
 ```powershell
-cd D:\kandahar-wms-fixed-final
+cd kandahar-wms
 npm install
 npm run dev
 ```
 
-Browser کې خلاص کړئ:
+Open in browser:
 
 ```text
 http://localhost:5173
 ```
 
-
 ## Firebase Mode
-د اصلي Firebase لپاره:
 
-1. `.env.example` کاپي کړئ
-2. نوم یې `.env.local` کړئ
-3. خپل Firebase values پکې واچوئ
-4. `npm run dev` بیا چلوئ
+To use live Firebase:
 
-## مهمې اصلاح شوې برخې
+1. Copy `.env.example`
+2. Rename it to `.env.local`
+3. Add your Firebase values
+4. Run `npm run dev` again
 
-- Login/Logout flow سم شو
-- `/dashboard` route اضافه شو
-- TailAdmin ecommerce dashboard لرې شو
-- WMS dashboard اضافه شو
-- Auth د Firebase او Demo دواړو سره کار کوي
-- Button submit مشکل حل شو
-- Official Forms page اضافه شو
-- Extra demo template routes له App څخه لرې شول
-- Build test کامیاب شو
+## Key Fixed & Added Parts
 
-## د دفاع لپاره اصلي routes
+- Login/Logout flow fixed
+- `/dashboard` route added
+- TailAdmin ecommerce dashboard removed
+- WMS dashboard added
+- Auth works with both Firebase and Demo modes
+- Button submit issue fixed
+- Official Forms page added
+- Extra demo template routes removed from App
+- Build test passed
+
+## Main Routes
 
 - `/signin`
 - `/dashboard`

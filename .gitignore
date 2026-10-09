@@ -1,12 +1,13 @@
 # ─────────────────────────────────────────────────────────────
 #  Kandahar University WMS — Root .gitignore
-#  Keep secrets, builds, and large local data OUT of the repo
+#  Repository is a complete backup: only generated artifacts,
+#  local secrets and internal AI/dev tooling are excluded
 # ─────────────────────────────────────────────────────────────
 
-# Dependencies
+# Dependencies (generated — reinstall with `npm install`)
 node_modules/
 
-# Build outputs
+# Build outputs (generated — regenerate with `npm run build`)
 dist/
 dist-ssr/
 build/
@@ -35,25 +36,22 @@ Backend/.env
 *.key
 *.pfx
 
-# Database backup dumps (real/sensitive data, large)
-Backup/*.sql
-Backup/*.ini
-!Backup/.gitkeep
-
 # Local MySQL data directories
 mysql_data/
 mysql_temp_data/
 
-# Test & tooling output
+# Internal AI/dev tooling & test output (not project content)
+.agents/
 test-results/
 coverage/
-.agents/
-Frontend/attached_assets/
 
-# Internal dev/repair notes (not part of the deliverable)
-FINAL_CHANGED_FILES_SHA256.txt
-FINAL_COMPARISON_REPAIR_REPORT_PASHTO.txt
+# Pashto internal repair/dev notes (kept local; repo documentation is English)
 REPAIR_REPORT_PASHTO.txt
+FINAL_COMPARISON_REPAIR_REPORT_PASHTO.txt
+FINAL_CHANGED_FILES_SHA256.txt
+
+# AI assistant conversation dumps (dev scratch, kept local)
+Frontend/attached_assets/Pasted-*
 
 # OS / editor clutter
 .DS_Store

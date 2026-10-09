@@ -1,35 +1,37 @@
-# د کندهار پوهنتون د عمومي ګدام او تدارکاتو مدیریت سیستم
+# Kandahar University WMS — Frontend
 
-دا پروژه د ګدام، موجودۍ، غوښتنو، تدارکاتو، رسمي فورمونو، ترلاسه کولو، تسلیمۍ، خبرتیاوو، راپورونو، بیکپ او صلاحیتونو لپاره جوړه شوې ده.
+React 18 + Vite + Tailwind CSS SPA for the **Kandahar University Warehouse Management & Procurement System**.
 
-## چلول
+> See the repository root [`README.md`](../README.md) for full documentation, setup instructions, API reference, and architecture overview.
+
+## Quick Start
 
 ```powershell
 npm install
+copy .env.example .env      # Windows   |   cp .env.example .env  (Linux/Mac)
 npm run dev
 ```
 
-## فایربیس وصلول
+Open `http://localhost:5000`.
 
-د پروژې په اصلي فولډر کې `.env.local` جوړ کړئ او د `.env.example` له مخې د Firebase Web App معلومات پکې واچوئ. وروسته `npm run dev` بیا چالان کړئ.
+## Main Sections
 
-## مهمې برخې
+- Dashboard
+- Inventory (items, stock in/out, returns, ledger, barcode scanner, checklists)
+- Requests
+- Procurement
+- Receiving
+- Reports
+- Official Forms
+- Notifications
+- Traceability
+- Settings
+- About
 
-- عمومي پاڼه
-- موجودي
-- ترلاسه کول
-- تدارکات
-- غوښتنې
-- فورمونه
-- خبرتیاوې
-- راپورونه
-- تنظیمات
-- زموږ په اړه
+## Official Forms
 
-## رسمي فورمونه
+The 7 official government/university forms open from `public/forms/official-forms.html` in isolated iframes so their CSS, JavaScript and print layout stay intact.
 
-اووه رسمي فورمونه له `public/forms/official-forms.html` څخه په جلا iframe کې خلاصیږي، تر څو CSS، JavaScript او چاپي بڼه یې خوندي پاتې شي.
+## Security Note
 
-## امنیتي یادښت
-
-GitHub token، فایربیس محرمانه کلیدونه او پاسورډونه په frontend کې مه ساتئ. د GitHub بیکپ لپاره backend یا server-side خوندي token وکاروئ.
+Never store GitHub tokens, Firebase private keys or passwords in the frontend. Use a secure backend or server-side token for GitHub backups.

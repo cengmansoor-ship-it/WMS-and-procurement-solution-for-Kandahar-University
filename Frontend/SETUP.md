@@ -1,7 +1,6 @@
-# د کندهار پوهنتون د ګدام سیستم - د نصب لارښود
 # Kandahar University WMS — Setup Guide
 
-## Requirements / اړتیاوې
+## Requirements
 
 - Node.js v18 or newer
 - MySQL Server 8.0 or newer
@@ -9,9 +8,9 @@
 
 ---
 
-## Step 1 — Database Setup / د ډیټابیس جوړول
+## Step 1 — Database Setup
 
-Open MySQL client:
+Open the MySQL client:
 
 ```bash
 mysql -u root -p --default-character-set=utf8mb4
@@ -25,6 +24,7 @@ source /full/path/to/backend/src/database/seed.sql;
 ```
 
 On Windows (example):
+
 ```sql
 source C:/Projects/kandahar-wms/backend/src/database/schema.sql;
 source C:/Projects/kandahar-wms/backend/src/database/seed.sql;
@@ -32,7 +32,7 @@ source C:/Projects/kandahar-wms/backend/src/database/seed.sql;
 
 ---
 
-## Step 2 — Backend Setup / د بیک اینډ چلول
+## Step 2 — Backend Setup
 
 ```bash
 cd backend
@@ -51,19 +51,18 @@ DB_PASSWORD=your_actual_password
 DB_NAME=kandahar_wms_db
 ```
 
-Install and run:
+Install dependencies and run:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Backend will be available at: `http://localhost:3001`
-Health check: `http://localhost:3001/api/health`
+Available at: `http://localhost:3001` — health check: `http://localhost:3001/api/health`
 
 ---
 
-## Step 3 — Frontend Setup / د فرنټ اینډ چلول
+## Step 3 — Frontend Setup
 
 In the project root:
 
@@ -78,18 +77,18 @@ The `.env` file should contain:
 VITE_API_BASE_URL=http://localhost:3001/api
 ```
 
-Install and run:
+Install dependencies and run:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Frontend will be available at: `http://localhost:5000`
+Available at: `http://localhost:5000`
 
 ---
 
-## Step 4 — First Login / لومړنی ننوتل
+## Step 4 — First Login
 
 The system runs in **demo mode** when Firebase is not configured.
 Default login credentials (demo mode):
@@ -114,14 +113,16 @@ Default login credentials (demo mode):
 
 ---
 
-## Production Build / د پروډکشن جوړول
+## Production Build
 
 Frontend:
+
 ```bash
 npm run build
 ```
 
 Backend:
+
 ```bash
 cd backend
 npm run build
@@ -130,17 +131,20 @@ npm start
 
 ---
 
-## Troubleshooting / د ستونزو حل
+## Troubleshooting
 
 **Backend cannot connect to MySQL:**
+
 - Check that MySQL is running
-- Verify DB_PASSWORD in `backend/.env`
+- Verify `DB_PASSWORD` in `backend/.env`
 - Ensure the database was created: `CREATE DATABASE IF NOT EXISTS kandahar_wms_db`
 
 **Frontend shows blank page:**
+
 - Check that the frontend `.env` has `VITE_API_BASE_URL=http://localhost:3001/api`
 - Restart Vite after changing `.env`
 
 **Pashto text shows as boxes:**
-- Ensure your MySQL was imported with `--default-character-set=utf8mb4`
+
+- Import the database with `--default-character-set=utf8mb4`
 - Verify the schema uses `CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`

@@ -1,122 +1,110 @@
-<div align="center" dir="rtl">
+<div align="center">
 
 <img src="Frontend/public/kandahar-university-logo.png" alt="Kandahar University Logo" width="110" height="110" />
 
-# 🎓 د کندهار پوهنتون د عمومي ګدام او تدارکاتو مدیریت سیستم
+# 🎓 Kandahar University — Warehouse Management & Procurement System (WMS)
 
-<a href="https://github.com/cengmansoor-ship-it/WMS-and-procurement-solution-for-Kandahar-University">
-  <img alt="Pashto" src="https://img.shields.io/badge/زبان-پښتو-%23f59e0b?style=for-the-badge&labelColor=%23220031"/>
-</a>
-<img alt="React" src="https://img.shields.io/badge/React-18-%2361dafb?style=for-the-badge&logo=react&labelColor=%23220031"/>
-<img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.7-%233178c6?style=for-the-badge&logo=typescript&labelColor=%23220031"/>
-<img alt="Node.js" src="https://img.shields.io/badge/Node.js-Express-%23339933?style=for-the-badge&logo=nodedotjs&labelColor=%23220031"/>
-<img alt="MySQL" src="https://img.shields.io/badge/MySQL-8-%234479a1?style=for-the-badge&logo=mysql&labelColor=%23220031"/>
-<img alt="Tailwind" src="https://img.shields.io/badge/Tailwind_CSS-4-%2306b6d4?style=for-the-badge&logo=tailwindcss&labelColor=%23220031"/>
-<img alt="Year" src="https://img.shields.io/badge/۲۰۲۶-Final_Year_Project-%23eab308?style=for-the-badge&labelColor=%23220031"/>
-<img alt="Status" src="https://img.shields.io/badge/Status-Production_Ready-%2322c55e?style=for-the-badge&labelColor=%23220031"/>
+**Full-Stack Final Year Project · Faculty of Computer Science · 2026**
 
-**Kandahar University — Warehouse Management & Procurement System (WMS)**
-*د کندهار پوهنتون د کمپیوټر ساینس پوهنځي — فاینل ایر پروژه ۲۰۲۶*
+![React](https://img.shields.io/badge/React-18-%2361dafb?style=for-the-badge&logo=react&labelColor=%23111)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-%233178c6?style=for-the-badge&logo=typescript&labelColor=%23111)
+![Node.js](https://img.shields.io/badge/Node.js-Express-%23339933?style=for-the-badge&logo=nodedotjs&labelColor=%23111)
+![MySQL](https://img.shields.io/badge/MySQL-8-%234479a1?style=for-the-badge&logo=mysql&labelColor=%23111)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-4-%2306b6d4?style=for-the-badge&logo=tailwindcss&labelColor=%23111)
+![Vite](https://img.shields.io/badge/Vite-6-%23646cff?style=for-the-badge&logo=vite&labelColor=%23111)
+![Firebase](https://img.shields.io/badge/Firebase-12-%23ffca28?style=for-the-badge&logo=firebase&labelColor=%23111)
+![Status](https://img.shields.io/badge/Status-Production_Ready-%2322c55e?style=for-the-badge&labelColor=%23111)
 
 </div>
 
 ---
 
-<div align="center" dir="rtl">
+<div align="center">
 
 <img src="Frontend/banner.png" alt="Kandahar WMS Banner" width="100%" />
 
 </div>
 
-> ## 📖 لنډیز — *Overview*
->
-> د عمومي ګدام او تدارکاتو مدیریت سیستم د کندهار پوهنتون لپاره یو بشپړ **Web-based** سیسټم دی چې د اجناسو موجودۍ، سټاک، غوښتنو، تدارکاتو، ترلاسه کولو، تسلیمۍ، رسمي فورمونو، راپورونو، خبرتیاوو، بودیجې، بېکپ او د کاروونکو د صلاحیتونو (RBAC) بشپړه اداره کوي. سیستم په **پښتو او فارسي** (RTL) انٹرفیس سره جوړ شوی او د پوهنتون د ریښتینو اداري بهیرونو سره سم ډیزاین شوی دی.
+## 📖 Overview
 
-**A complete Warehouse Management & Procurement platform for Kandahar University — inventory, stock movement, item requests with a full approval pipeline, procurement (vendor offers & purchase orders), receiving, delivery, official Afghan government forms, 13+ reports, notifications, budget codes, audit logs, soft-delete/recovery, and automatic SQL backups — all in a Pashto/Farsi RTL interface.**
+A complete **Web-based Warehouse Management & Procurement System** built for **Kandahar University**. The platform manages inventory, stock movement, item requests with a full approval pipeline, procurement (vendor offers & purchase orders), receiving, delivery, official Afghan government forms, 13+ reports, notifications, budget codes, audit logs, soft-delete/recovery, and automatic SQL backups — all behind a secure **RBAC** (role-based access control) system.
+
+The application interface is fully **RTL** with **Pashto/Dari** support and uses the **Afghan Shamsi (Solar Hijri) calendar**, matching the real administrative workflows of the university.
 
 ---
 
-## ✨ اصلي ځانګړنې — *Key Features*
+## ✨ Key Features
 
-<div align="right" dir="rtl">
-
-| 🗂️ برخه | ماډولونه |
+| Area | Modules |
 |---|---|
-| 📊 **عمومي پاڼه / Dashboard** | احیايي شمېرې، ApexCharts ګرافونه، د سټاک کمښت خبرتیاوې، د غوښتنو او تدارکاتو وضعیت |
-| 📦 **موجودي / Inventory** | د توکو لیست، اضافه/سمون، سټاک داخلول (Stock-In)، سټاک وتل (Stock-Out)، سټاک راګرځول (Returns)، لیجر (Ledger)، **بارکوډ سکنر**، د چک لیست مدیریت (Import checklist) |
-| 🙋 **غوښتنې / Requests** | د توکو غوښتنه، بېرته کتنه (Pre-review) او **کفیل سیسټم**، د غوښتنې کچه (Urgent / Normal / Low)، Tr ‌racking code، بشپړ **تصویب پایپ‌لاین** (Confirmer → تدارکات → ګدام → تسلیمۍ) |
-| 🛒 **تدارکات / Procurement** | د تدارکاتو قضیې، د عرضه‌کونکو وړاندیزونه (Vendor Offers)، د ګټونکي ټاکنه، **Purchase Order**، د رسمي فورمونو سره اړیکه |
-| 📥 **ترلاسه کول / Receiving** | د PO او غوښتنو سره سم رسید، د رسید راپورونه، ف س ۵ (FS5) |
-| 🚚 **تسلیمۍ / Delivery** | د پوهنځیو او کسانو ته تسلیمۍ، د تسلیمۍ فورمه، توکي او کمیتونه |
-| 🔎 **تعقیب / Traceability** | له غوښتنې → تدارکاتو → رسید → تسلیمۍ پورې د هر توکي بشپړ لړ – د هر شخص/څانګې لیجر |
-| 📝 **رسمي فورمونه / Official Forms** | **۷ رسمي فورمونه** (د پیشنهاد فورمه، مقایسوی فورمه، آمر خریداری، د رسید راپور، ف س ۵، Tender…) په جلا iframe کې |
-| 📈 **راپورونه / Reports** | **۱۳+ راپورونه**: موجودي، د سټاک حرکت، غوښتنې، تدارکات، رسید/تسلیمۍ، پوهنځی، څانګه، د کس ګومارنه، کلنۍ اړتیاوې، وړاندوینه (Forecast)، د فعالیت تاریخچه (Audit) او راګرځونه |
-| 🔔 **خبرتیاوې / Notifications** | د سټاک کمښت، د غوښتنو نوي حالتونه، د تصویب خبرتیاوې |
-| 💰 **بودیجه / Budget** | د بودیجې کوډونه، سقف (Ceilings) او محدودیت‌ونه |
-| ⚙️ **تنظیمات / Settings** | د ایمیل/SMS تنظیم، د سیستم تنظیمات، د ورځني غوښتنو محدودیت، د سیسټم روغتیا |
-| 🗄️ **بېکپ / Backup** | **اتوماتیک SQL بېکپ هر ۳ ساعته**، ډاونلوډ/بېرته راګرځول، Excel-compatible ایکسپورټ |
-| 🗑️ **کثافات / Trash & Recovery** | **سافټ-ډیلیټ** — هیڅ معلومات په دایمي توګه نه ډیلیټیږي؛ بېرته راګرځول کیږي |
-| 👥 **کاروونکي / Users & Roles** | **RBAC**، د ۷ دندو/رولونو سیسټم، دودیز رولونه (Custom Roles)، د حساب فعالول |
-| 🕵️ **سوپر اډمین / Monitoring** | د سیستم ژوندی څارنه: انالیتیک، موجودي، غوښتنې، تدارکات، رسید |
-| 🛡️ **امنیت / Security** | JWT سیشن، Helmet، Rate-Limiting، CORS، **Audit Logs**، د پاسورډ هش (bcrypt) |
-| 🖨️ **چاپ** | د ټولو رسمي فورمونو د چاپ لپاره چمتو ډیزاین |
-
-</div>
+| 📊 **Dashboard** | Live statistics, ApexCharts graphs, low-stock alerts, request & procurement status |
+| 📦 **Inventory** | Item list, add/edit, Stock-In, Stock-Out, Stock Returns, Item Ledger, **barcode scanner**, checklist management (import from checklist files) |
+| 🙋 **Requests** | Item request creation, pre-review, **delegation (کفیل) system**, request levels (Urgent / Normal / Low), tracking codes, full **approval pipeline** (Confirmer → Procurement → Warehouse → Delivery) |
+| 🛒 **Procurement** | Procurement cases, vendor offers, winner selection, **Purchase Orders**, linked to official forms |
+| 📥 **Receiving** | Receiving against POs & requests, receipt reports, FS5 form |
+| 🚚 **Delivery** | Delivery to faculties & individuals, delivery form, items & quantities |
+| 🔎 **Traceability** | Full lifecycle tracking of every item — request → procurement → receiving → delivery, per-person/per-department ledger |
+| 📝 **Official Forms** | **7 official government/university forms** (proposal form, comparison form, purchase order, receipt report, FS5, tender…) rendered in isolated iframes |
+| 📈 **Reports** | **13+ reports**: inventory, stock movement, requests, procurement, receiving/delivery, faculty, department, person assignment, annual needs, forecasting, audit activity, returns |
+| 🔔 **Notifications** | Low-stock alerts, new request states, approval notifications |
+| 💰 **Budget** | Budget codes, ceilings and limits |
+| ⚙️ **Settings** | Email/SMS configuration, system settings, daily request limits, system health |
+| 🗄️ **Backup** | **Automatic SQL backup every 3 hours**, download/restore, Excel-compatible export |
+| 🗑️ **Trash & Recovery** | **Soft-delete** — nothing is ever permanently removed; recover from Trash |
+| 👥 **Users & Roles** | **RBAC** with 7 roles, custom roles, user activation |
+| 🕵️ **Super Admin** | Live system monitoring: analytics, inventory, requests, procurement, receiving |
+| 🛡️ **Security** | JWT sessions, Helmet, rate limiting, CORS, **immutable audit logs**, bcrypt password hashing |
 
 ---
 
-## 🧩 د سیستم ماډولونه — *System Modules*
+## 🧩 System Modules
 
-| ماډول | لار | Module | Route |
-|---|---|---|---|
-| عمومي پاڼه | `/dashboard` | Dashboard | `/dashboard` |
-| موجودي | `/inventory/*` | Inventory | `/inventory/items`, `/stock-in`, `/stock-out`, `/returns`, `/ledger`, `/barcode-scanner`, `/checklist` |
-| غوښتنې | `/requests/*` | Requests | `/requests`, `/requests/create`, `/requests/details/:id` |
-| تدارکات | `/procurement/*` | Procurement | `/procurement`, `/procurement/details/:id`, `/procurement/offers/:id` |
-| ترلاسه کول | `/receiving/*` | Receiving | `/receiving`, `/receiving/details/:id` |
-| راپورونه | `/reports/*` | Reports | `/reports` + ۱۲ نور |
-| رسمي فورمونه | `/official-forms` | Official Forms | `/official-forms` |
-| خبرتیاوې | `/notifications` | Notifications | `/notifications` |
-| تعقیب | `/traceability` | Traceability | `/traceability` |
-| تنظیمات | `/settings` | Settings | `/settings`, `/user-management`, `/role-management`, `/delegation` |
-| څارنه | `/superadmin` | Monitoring | `/superadmin` + ۵ نور |
-| ساتنه | `/maintenance/*` | Maintenance | `/trash`, `/recovery-history`, `/backup`, `/health`, `/final-qa` |
-| زموږ په اړه | `/about` | About | `/about` |
-
----
-
-## 🛠️ تخنیکي سټیک — *Tech Stack*
-
-<div align="center">
-
-| طبقه | ټیکنالوژي |
+| Module | Route |
 |---|---|
-| 🎨 **فرنټ‌اینډ** | React 18 · TypeScript · Vite 6 · Tailwind CSS 4 · React Router 7 · ApexCharts · FullCalendar · Firebase · QR/Barcode (jsqr, qrcode.react) · jalaali-js (شمسی نېټې) · PWA |
-| ⚙️ **بیک‌اینډ** | Node.js · Express 4 · TypeScript · mysql2 · JWT سیشن · Helmet · CORS · Compression · Rate-Limit · bcryptjs · Nodemailer · node-cron |
-| 🗄️ **ډیټابیس** | MySQL 8 (utf8mb4 / utf8mb4_unicode_ci) — ۲۳+ جدولونه |
-| 🚀 **ځای پر ځای کول** | PM2 · ecosystem.config.cjs · د LAN وایندوز سکریپټونه (scripts/) |
+| Dashboard | `/dashboard` |
+| Inventory | `/inventory/items`, `/stock-in`, `/stock-out`, `/returns`, `/ledger`, `/barcode-scanner`, `/checklist` |
+| Requests | `/requests`, `/requests/create`, `/requests/details/:id` |
+| Procurement | `/procurement`, `/procurement/details/:id`, `/procurement/offers/:id` |
+| Receiving | `/receiving`, `/receiving/details/:id` |
+| Reports | `/reports` (+ 12 sub-reports) |
+| Official Forms | `/official-forms` |
+| Notifications | `/notifications` |
+| Traceability | `/traceability` |
+| Settings | `/settings`, `/user-management`, `/role-management`, `/delegation` |
+| Super Admin | `/superadmin` (+ 5 monitors) |
+| Maintenance | `/trash`, `/recovery-history`, `/backup`, `/health`, `/final-qa` |
+| About | `/about` |
 
-</div>
+---
 
-### 🏗️ د سیسټم معماري — *System Architecture*
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| 🎨 **Frontend** | React 18 · TypeScript · Vite 6 · Tailwind CSS 4 · React Router 7 · ApexCharts · FullCalendar · Firebase · QR/Barcode (jsqr, qrcode.react) · jalaali-js (Shamsi dates) · PWA |
+| ⚙️ **Backend** | Node.js · Express 4 · TypeScript · mysql2 · JWT sessions · Helmet · CORS · Compression · Rate limiting · bcryptjs · Nodemailer · node-cron |
+| 🗄️ **Database** | MySQL 8 (utf8mb4 / utf8mb4_unicode_ci) — 23+ tables |
+| 🚀 **Deployment** | PM2 · ecosystem.config.cjs · Windows LAN scripts (`scripts/`) |
+
+### 🏗️ System Architecture
 
 ```mermaid
 flowchart TB
-    subgraph Client["فرنټ اینډ — React + Vite + Tailwind (RTL پښتو/فارسي)"]
+    subgraph Client["Frontend — React + Vite + Tailwind (RTL Pashto/Dari)"]
         UI["🖥️ React UI · Pages & Components"]
         PWA["📱 PWA · Offline / Mobile"]
     end
 
-    subgraph Server["بیک اینډ — Node.js + Express + TypeScript"]
+    subgraph Server["Backend — Node.js + Express + TypeScript"]
         API["🔌 REST API  /api"]
         AUTH["🔐 Auth · RBAC · JWT Session"]
         SVC["⚙️ Services (Inventory, Requests, Procurement, Reports…)"]
-        CRON["⏰ Cron (Auto Backup هر ۳ ساعته)"]
+        CRON["⏰ Cron (Auto Backup every 3h)"]
     end
 
-    subgraph Data["ډیټا"]
+    subgraph Data["Data"]
         DB[("🗄️ MySQL 8 — kandahar_db")]
-        FB[("🔥 Firebase — Auth/Firestore (اختیاري)")]
+        FB[("🔥 Firebase · Auth/Firestore (optional)")]
     end
 
     UI --> API
@@ -125,24 +113,24 @@ flowchart TB
     API --> SVC
     SVC --> DB
     CRON --> DB
-    UI -. "اختیاري" .-> FB
+    UI -. "Optional" .-> FB
 ```
 
 ---
 
-## 📁 د پروژې جوړښت — *Project Structure*
+## 📁 Project Structure
 
 ```
 KWMS/
 ├── Backend/                  # Node.js + Express + TypeScript API
 │   ├── src/
 │   │   ├── config/           # DB connection
-│   │   ├── controllers/      # Route handlers (21 فایل)
+│   │   ├── controllers/      # Route handlers (21 files)
 │   │   ├── database/         # schema.sql · seed.sql
 │   │   ├── middleware/       # auth, RBAC, API security
 │   │   ├── routes/           # 22 API route modules
 │   │   ├── security/         # session/JWT tokens
-│   │   ├── services/         # business logic (25 فایل)
+│   │   ├── services/         # business logic (25 files)
 │   │   ├── utils/
 │   │   └── server.ts         # entry point
 │   ├── tests/                # security + live API tests
@@ -157,49 +145,49 @@ KWMS/
 │   │   ├── constants/        # roles, permissions
 │   │   ├── context/          # auth, theme…
 │   │   ├── layouts/          # app + reports + settings layouts
-│   │   ├── pages/            # ۲۰+ page modules
+│   │   ├── pages/            # 20+ page modules
 │   │   ├── services/
 │   │   ├── firebase/         # localStore / optional Firebase
 │   │   └── App.tsx           # router (protected routes)
 │   ├── public/
-│   │   ├── forms/            # ۷ رسمي فورمونه (iframe)
-│   │   ├── fonts/            # Bahij Zar — پښتو فونټ
-│   │   └── team/             # د ټیم انځورونه
+│   │   ├── forms/            # 7 official forms (iframe)
+│   │   ├── fonts/            # Bahij Zar — Pashto font
+│   │   └── team/             # team photos
 │   ├── docs/                 # security notes + screenshots
 │   ├── .env.example
 │   └── package.json
 │
-├── DB/                       # database create + restore docs
-├── Backup/                   # خودکار SQL بېکپونه (local فقط)
+├── DB/                       # database creation + restore docs
+├── Backup/                   # automatic SQL backups
 ├── scripts/                  # LAN / Windows deployment scripts
 └── .gitignore
 ```
 
 ---
 
-## 🔐 دندې او صلاحیتونه — *Roles & Permissions (RBAC)*
+## 🔐 Roles & Permissions (RBAC)
 
-| دنده / Role | اجازه‌لرونکې برخې / Allowed modules |
+| Role | Allowed Modules |
 |---|---|
-| 👑 **سوپر اډمین** Super Admin | هر څه — ټولې برخې، تنظیمات، بېکپ، کثافات، څارنه |
-| 🧑‍💼 **اډمین** Admin | موجودي، ټولې غوښتنې، راپورونه، تدارکات ولولئ، ترلاسه کول |
-| 🛒 **د تدارکاتو مدیر** Procurement Director | تدارکات — مدیریت او تصویب |
-| 🏭 **د ګدام مدیر** Warehouse Director | موجودي (اداره)، ترلاسه کول، سټاک-آوټ، چک لیست |
-| 📦 **د ګدام کارکوونکی** Warehouse Entry Person | موجودي، سټاک-این، ترلاسه کول |
-| 🙋 **غوښتونکی** Requester | غوښتنې جوړول |
-| ✅ **تصویبونکی** Request Confirmer | غوښتنې تصویبول |
+| 👑 **Super Admin** | Everything — all modules, settings, backup, trash, monitoring |
+| 🧑‍💼 **Admin** | Inventory, all requests, reports, read procurement, receiving |
+| 🛒 **Procurement Director** | Procurement — management & approval |
+| 🏭 **Warehouse Director** | Inventory (manage), receiving, stock-out, checklists |
+| 📦 **Warehouse Entry Person** | Inventory, stock-in, receiving |
+| 🙋 **Requester** | Create requests |
+| ✅ **Request Confirmer** | Approve requests |
 
 ---
 
-## 🚀 پیل — *Getting Started*
+## 🚀 Getting Started
 
-### اړتیاوې · *Prerequisites*
+### Prerequisites
 
 - **Node.js** ≥ 18
 - **MySQL** Server 8.0+
 - **npm**
 
-### ۱ — ډیټابیس جوړول · *Database Setup*
+### 1 — Database Setup
 
 ```bash
 mysql -u root -p --default-character-set=utf8mb4
@@ -211,42 +199,42 @@ source Backend/src/database/schema.sql;
 source Backend/src/database/seed.sql;
 ```
 
-### ۲ — بیک‌اینډ چلول · *Backend*
+### 2 — Run the Backend
 
-```powershell
+```bash
 cd Backend
 copy .env.example .env      # Windows   |   cp .env.example .env  (Linux/Mac)
-# .env کې خپل MySQL پاسورډ وليکئ
+# Edit .env and set your MySQL password
 npm install
 npm run dev
 ```
 
-✔ Backend به په `http://localhost:3001` چالان شي — صحت: `http://localhost:3001/api/health`
+✔ Backend runs at `http://localhost:3001` — health check: `http://localhost:3001/api/health`
 
-### ۳ — فرنټ‌اینډ چلول · *Frontend*
+### 3 — Run the Frontend
 
-```powershell
+```bash
 cd Frontend
 copy .env.example .env      # Windows   |   cp .env.example .env  (Linux/Mac)
 npm install
 npm run dev
 ```
 
-✔ App به په `http://localhost:5000` پرانیستل شي
+✔ App opens at `http://localhost:5000`
 
-> **Firebase (اختیاري):** د اصلي Firebase اتصال لپاره د `Frontend/.env` فایل کې د Firebase Web App معلومات واچوئ. پرته له Firebase څخه سیستم په **Demo Mode** کار کوي.
+> **Firebase (optional):** to enable live Firebase, add your Firebase Web App credentials to `Frontend/.env`. Without Firebase, the system runs in **Demo Mode**.
 
-### 🔑 لومړنی ننوتل · *Default Login (Demo Mode)*
+### 🔑 Default Login (Demo Mode)
 
-| بریښنالیک · Email | پاسورډ · Password |
+| Email | Password |
 |---|---|
 | `admin@kandahar.edu.af` | `admin123` |
 
 ---
 
-## 🔌 API ماډولونه — *API Modules*
+## 🔌 API Modules
 
-| ماډول | Base Path |
+| Module | Base Path |
 |---|---|
 | Authentication | `/api/auth` |
 | Users | `/api/users` |
@@ -266,67 +254,59 @@ npm run dev
 | Trash | `/api/trash` |
 | Checklist | `/api/checklist` |
 | Backup | `/api/backup` |
-| Delegations (کفیل) | `/api/delegations` |
+| Delegations | `/api/delegations` |
 | Settings | `/api/settings` |
 | Health & Time | `/api/health` · `/api/time/now` |
 
 ---
 
-## 📊 راپورونه — *Reports*
+## 📊 Reports
 
-<div align="center">
-
-| راپور | Description |
+| Report | Description |
 |---|---|
-| عمومي راپور | Reports Dashboard |
-| د موجودۍ راپور | Inventory Report |
-| د سټاک د حرکت راپور | Stock Movement Report |
-| د غوښتنو راپور | Request Report |
-| د تدارکاتو راپور | Procurement Report |
-| د رسید او تسلیمۍ راپور | Receiving & Delivery Report |
-| د پوهنځیو راپور | Faculty Report |
-| د څانګو راپور | Department Report |
-| د کس ګومارنې راپور | Person Assignment Report |
-| کلنۍ اړتیاوې | Annual Needs Report |
-| وړاندوینه | Forecasting Report |
-| د فعالیت تاریخچه | Audit Activity Report |
-| راګرځونه | Stock Return Report |
-
-</div>
+| Reports Dashboard | Overview of all reports |
+| Inventory Report | Current stock levels |
+| Stock Movement Report | Stock in/out/adjustment history |
+| Request Report | Item requests overview |
+| Procurement Report | Procurements, offers & POs |
+| Receiving & Delivery Report | Received and delivered items |
+| Faculty Report | Items by faculty |
+| Department Report | Items by department |
+| Person Assignment Report | Items assigned to individuals |
+| Annual Needs Report | Yearly needs planning |
+| Forecasting Report | Demand forecasting |
+| Audit Activity Report | Immutable action history |
+| Stock Return Report | Returned items |
 
 ---
 
-## 🔒 امنیت او بېکپ — *Security & Backup*
+## 🔒 Security & Backup
 
-- 🔐 **JWT سیشن** + **RBAC** — هر رول یوازې خپلو برخو ته لاسرسی لري
-- 🛡️ **Helmet**, **Rate Limiting** (د ننوتو ۲۰ هڅې / ۱۰ دقیقې), **CORS** او غوښتنې کنټرول
-- 🧾 **Audit Logs** — ټول فعالیتونه د زړو او نویو ارزښتونو سره ثبت کیږي (هېڅکله نه ایډیټیږي)
-- 🗑️ **سافټ-ډیلیټ** — هیڅ معلومات په دایمي توګه نه ډیلیټیږي؛ له **کثافاتو (Trash)** بېرته راګرځولی شئ
-- 🗄️ **اتوماتیک SQL بېکپ** هر ۳ ساعته (node-cron) + Excel ایکسپورټ
-- 👤 **حساب فعالول** — نوي کاروونکي تر سوپر اډمین تصویب وروسته ننوتلای شي
-- ⚠️ حساس معلومات (`.env`, `.wms-session-key`, د بېکپ دوتنې) **هېڅکله** له ریپوزیټورۍ سره نه خپریږي
+- 🔐 **JWT sessions** + **RBAC** — each role can only access its own modules
+- 🛡️ **Helmet**, **rate limiting** (20 login attempts / 10 minutes), **CORS**, request controls
+- 🧾 **Audit logs** — every action is recorded with old & new values; immutable
+- 🗑️ **Soft-delete** — nothing is permanently removed; everything is recoverable from Trash
+- 🗄️ **Automatic SQL backups** every 3 hours (node-cron) + Excel-compatible export
+- 👤 **User activation** — new users can only log in after Super Admin approval
+- ⚠️ Sensitive data (`.env`, session keys, credentials) is **never** committed to the repository
 
-> 📌 لارښوونه: د لومړي ځل لپاره د مخکې-تولید مخکې، `Frontend/firestore.rules` وګورئ او د تولید رولونه تطبیق کړئ.
+> 📌 Before the first production deployment, review and apply hardened production rules from `Frontend/firestore.rules`.
 
 ---
 
-## 📸 سکرین شاټ‌ونه — *Screenshots*
+## 📸 Screenshots
 
-<div align="center">
-
-| عمومي پاڼه · Dashboard | عمومي پاڼه · Dashboard |
+| Dashboard | Dashboard |
 |---|---|
 | <img src="Frontend/docs/screenshots/dashboard-1.png" width="380" /> | <img src="Frontend/docs/screenshots/dashboard-2.png" width="380" /> |
 
-</div>
-
 ---
 
-## 🧪 ازموینه — *Testing*
+## 🧪 Testing
 
-D ‌بیک‌اینډ کې د امنیتي او ژوندی API ازموینې شاملې دي:
+The backend includes security and live API tests:
 
-```powershell
+```bash
 cd Backend
 npm test                       # build + session-security tests
 npm run test:live              # live API tests
@@ -334,35 +314,33 @@ npm run test:live              # live API tests
 
 ---
 
-## 👨‍👩‍👦 د پروژې ټیم — *Project Team*
+## 👨‍👩‍👦 Project Team
 
-| غړی | دنده |
+| Member | Role |
 |---|---|
-| 🏆 **عنایت‌الله منصور** — Enayatullah Mansoor | د پروژې مشر او فول‌سټک ډیویلوپر |
-| 💻 **فضل‌الرحمن میار** — Fazalrahman Mayar | فرنټ‌اینډ ډیویلوپر |
-| ⚙️ **عبدالهادي رحیمي** — Abdulhadi Rahimi | بیک‌اینډ ډیویلوپر |
-| 📊 **شمس‌الرحمن مشفق** — Shamsurahman Mushfiq | سیستم تحلیل‌ګر |
+| 🏆 **Enayatullah Mansoor** | Project Lead & Full Stack Developer |
+| 💻 **Fazalrahman Mayar** | Frontend Developer |
+| ⚙️ **Abdulhadi Rahimi** | Backend Developer |
+| 📊 **Shamsurahman Mushfiq** | System Analyst |
 
-## 🎓 اکادمیک نظارت — *Academic Supervision*
+## 🎓 Academic Supervision
 
-> **حکمت‌الله امید** — Hikmatullah Omid
-> د کمپیوټر ساینس پوهنځی · د شبکو څانګه
-> *د فاینل ایر پروژې اکادمیک نظارت‌کوونکی*
-
----
-
-## 📜 جواز — *License*
-
-دا پروژه د ښوونیزو او علمي موخو لپاره جوړه شوې ده — **د کندهار پوهنتون د کمپیوټر ساینس پوهنځي، فاینل ایر پروژه ۲۰۲۶**.
-
-فرنټ‌اینډ په TailAdmin ریپو کې ولاړ دی؛ خپل جواز وګورئ: `Frontend/LICENSE.md`.
+> **Hikmatullah Omid**
+> Faculty of Computer Science · Department of Networks
+> *Academic Supervisor of the Final Year Project*
 
 ---
 
-<div align="center" dir="rtl">
+## 📜 License
 
-**د کندهار پوهنتون** 🎓 · د کمپیوټر ساینس پوهنځی · فاینل ایر پروژه ۲۰۲۶
+This project was created for educational and academic purposes — **Kandahar University, Faculty of Computer Science, Final Year Project 2026**.
 
-*Kandahar University · Faculty of Computer Science · Final Year Project 2026*
+The frontend is based on the TailAdmin template; see `Frontend/LICENSE.md` for its license.
+
+---
+
+<div align="center">
+
+**Kandahar University** 🎓 · Faculty of Computer Science · Final Year Project 2026
 
 </div>

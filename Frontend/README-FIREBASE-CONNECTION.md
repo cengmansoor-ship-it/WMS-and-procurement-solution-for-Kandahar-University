@@ -1,33 +1,33 @@
-# د فایربیس اتصال طریقه
+# Firebase Connection Guide
 
-۱. Firebase Console ته لاړ شئ.
-۲. Project settings خلاص کړئ.
-۳. General برخه کې خپل Web App انتخاب کړئ.
-۴. SDK config څخه دا values کاپي کړئ:
+1. Go to the Firebase Console.
+2. Open Project Settings.
+3. Under **General**, select your Web App.
+4. Copy these values from the SDK config:
 
-- apiKey
-- authDomain
-- projectId
-- storageBucket
-- messagingSenderId
-- appId
+- `apiKey`
+- `authDomain`
+- `projectId`
+- `storageBucket`
+- `messagingSenderId`
+- `appId`
 
-۵. د پروژې په اصلي فولډر کې `.env.local` فایل جوړ کړئ.
-۶. دا بڼه پکې واچوئ:
+5. Create a `.env.local` file in the project root.
+6. Add the values in this format:
 
 ```env
-VITE_FIREBASE_API_KEY=ستاسې_apiKey
+VITE_FIREBASE_API_KEY=your_apiKey
 VITE_FIREBASE_AUTH_DOMAIN=kandahar-university-wms.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=kandahar-university-wms
 VITE_FIREBASE_STORAGE_BUCKET=kandahar-university-wms.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=ستاسې_senderId
-VITE_FIREBASE_APP_ID=ستاسې_appId
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_senderId
+VITE_FIREBASE_APP_ID=your_appId
 ```
 
-۷. بیا پروژه بیا چالان کړئ:
+7. Restart the project:
 
 ```powershell
 npm run dev
 ```
 
-یادونه: `.env.local` هېڅکله GitHub ته مه push کوئ.
+> Note: never push `.env.local` to GitHub.

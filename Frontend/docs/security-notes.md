@@ -1,34 +1,41 @@
-# امنیتي یادښتونه / یادداشتهای امنیتی
+# Security Notes
 
-دا سند د کندهار پوهنتون د ګودام مدیریت سیسټم د امنیتي برخو په اړه مهم معلومات لري.
+This document contains important security information about the Kandahar University Warehouse Management System.
 
-## ۱. د فایربیس رولز (Firestore Rules)
-- **مهم:** هغه رولز چې اوس په سیسټم کې فعال دي، یوازې د ټیسټ لپاره دي. مخکې له دې چې سیسټم په رسمي ډول کار پیل کړي، باید په `firestore.rules` فایل کې موجود رولز تطبیق شي.
-- د فایربیس رولز باید اجازه ورنکړي چې عام کاروونکي نورو ډاټا ته لاسرسی ولري.
-- **ایډیټ منع دی:** د فعالیتونو تاریخچه (Audit Logs) او د سټاک تاریخچه (Stock Transactions) باید هیڅکله ایډیټ یا حذف نشي.
+## 1. Firebase Rules (Firestore)
 
-## ۲. د رولونو کنټرول (RBAC)
-- سیسټم د رولونو په اساس کار کوي (Super Admin, Admin, Director, etc).
-- هر رول یوازې خپلو اړوندو پاڼو ته لاسرسی لري.
-- که یو کاروونکی په مستقیم ډول د یوې محدودې پاڼې URL ولیکي، سیسټم باید اجازه ورنکړي.
+- **Important:** the rules currently active in the system are for **testing only**. Before the system goes into production, the rules in the `firestore.rules` file must be applied.
+- The Firebase rules must not allow regular users access to other users' data.
+- **Editing is forbidden:** Audit Logs and Stock Transactions must never be edited or deleted.
 
-## ۳. حذف کول او بیا رغونه (Soft Delete)
-- په دې سیسټم کې هیڅ معلومات په دایمي ډول نه حذفیږي.
-- کله چې یو ریکارډ حذف شي، هغه یوازې "حذف شوی" مارک کیږي ترڅو د سټاک په تاریخچه کې ستونزه رامنځته نشي.
-- سوپر اډمین کولی شي حذف شوي معلومات د کثافاتو له دانۍ (Trash) څخه بېرته را وګرځوي.
+## 2. Role-Based Access Control (RBAC)
 
-## ۴. د بیک اپ ساتنه (Backup)
-- د سیسټم بشپړ بیک اپ یوازې سوپر اډمین اخیستلای شي.
-- ډاونلوډ شوی بیک اپ فایل حساس معلومات لري، نو باید په یو خوندي هارډیسک یا فلش کې وساتل شي.
+- The system works on roles (Super Admin, Admin, Director, etc.).
+- Each role can only access its related pages.
+- If a user types a restricted page URL directly, the system must deny access.
 
-## ۵. د کاروونکو فعالول (User Activation)
-- نوي ثبت شوي کاروونکي تر هغه پورې سیسټم ته نشي ننوتلی ترڅو چې د سوپر اډمین لخوا فعال (Active) نشي.
+## 3. Deletion & Recovery (Soft Delete)
 
-## ۶. مهمې سپارښتنې
-- د `.env.local` فایل چې حساس کیلي ګانې لري، باید هیچا ته ورنکړل شي.
-- هر کله چې کار خلاص شي، باید له سیسټم څخه (Logout) شئ.
-- په عامه کمپیوټرونو کې پاسورډ مه خوندي کوئ.
+- Nothing is permanently deleted in this system.
+- When a record is deleted, it is only marked as "deleted" so that stock history is not broken.
+- Super Admin can restore deleted records from the Trash.
+
+## 4. Backup Retention
+
+- Only Super Admin can create a full system backup.
+- A downloaded backup file contains sensitive information and must be stored on a secure hard disk or flash drive.
+
+## 5. User Activation
+
+- Newly registered users cannot log in until they are activated (Active) by the Super Admin.
+
+## 6. Important Recommendations
+
+- Never share the `.env.local` file that contains sensitive keys.
+- Always log out when leaving the computer.
+- Do not save passwords on public computers.
 
 ---
-**د کندهار پوهنتون - د ګودام مدیریت سیسټم**
-**د امنیت مدیریت برخه**
+
+**Kandahar University — Warehouse Management System**
+**Security Management Section**
